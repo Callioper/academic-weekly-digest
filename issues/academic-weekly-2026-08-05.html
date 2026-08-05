@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学术周报 · 2026-08-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #ea1b22;
+    --ink: #161616;
+    --paper: #efece6;
+    --paper-deep: #d8dbe1;
+    --panel: #f6f3ed;
+    --line: rgba(29, 24, 20, 0.14);
+    --muted: #6b655c;
+    --shadow: 0 8px 24px rgba(32, 25, 20, 0.08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.65), transparent 22%),
+                linear-gradient(180deg, #f8f6f2 0%, #efe9e0 100%);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', 'Noto Serif SC', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.65;
+  }
+  .shell { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+  header.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1rem; margin-bottom: 2.5rem; }
+  header.masthead h1 { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: 2.4rem; margin: 0 0 0.4rem; letter-spacing: -0.5px; }
+  header.masthead .meta { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; }
+
+  .summary { background: var(--panel); padding: 1.2rem 1.5rem; border-radius: 4px;
+              border-left: 4px solid var(--red); margin-bottom: 2rem;
+              font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--ink); }
+  .summary p { margin: 0.3rem 0; }
+
+  /* 主题目录（TOC） */
+  nav.toc { background: white; padding: 1.2rem 1.5rem; border-radius: 4px;
+            box-shadow: var(--shadow); margin-bottom: 2.5rem;
+            border: 1px solid var(--line); }
+  nav.toc h3 { font-family: 'Playfair Display', serif; margin: 0 0 0.8rem; font-size: 1.1rem;
+                color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0;
+                display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.5rem; }
+  nav.toc li { font-size: 0.92rem; }
+  nav.toc a { color: var(--ink); text-decoration: none;
+                border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+  nav.toc a:hover { border-bottom-color: var(--red); color: var(--red); }
+  nav.toc .cnt { color: var(--muted); font-family: 'IBM Plex Mono', monospace;
+                  font-size: 0.8rem; margin-left: 0.2rem; }
+
+  /* 主题 section */
+  section.theme { margin: 3rem 0; scroll-margin-top: 1rem; }
+  section.theme > .theme-header { border-left: 3px solid var(--red); padding-left: 1rem;
+                                    margin-bottom: 1.2rem; }
+  section.theme h2 { font-family: 'Playfair Display', 'Noto Serif SC', serif;
+                      font-size: 1.5rem; margin: 0; color: var(--ink); }
+  section.theme h2 .cnt { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;
+                            color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
+  section.theme .theme-desc { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.92rem;
+                                font-style: italic; }
+
+  .cards { display: grid; gap: 1.2rem; }
+  article.card { background: white; padding: 1.4rem 1.6rem; border-radius: 4px;
+                  box-shadow: var(--shadow); border: 1px solid var(--line);
+                  transition: box-shadow 0.15s, transform 0.15s; }
+  article.card:hover { box-shadow: 0 12px 36px rgba(32, 25, 20, 0.12);
+                        transform: translateY(-1px); }
+  article.card header { display: flex; gap: 0.6rem; align-items: center;
+                          margin-bottom: 0.5rem; font-size: 0.78rem;
+                          font-family: 'IBM Plex Mono', monospace;
+                          text-transform: uppercase; letter-spacing: 0.5px; }
+  article.card .journal { background: var(--ink); color: var(--paper);
+                            padding: 2px 8px; font-weight: 500; }
+  article.card .author { color: var(--muted); }
+  article.card .pub-date { color: var(--muted); margin-left: auto;
+                            font-family: 'IBM Plex Mono', monospace; }
+  article.card .title { margin: 0.4rem 0 0.5rem; font-size: 1.08rem;
+                          font-family: 'Noto Serif SC', serif; line-height: 1.45; }
+  article.card .title a { color: var(--ink); text-decoration: none;
+                            border-bottom: 2px solid transparent; }
+  article.card .title a:hover { border-bottom-color: var(--red); }
+  article.card .abstract { margin: 0.5rem 0 0; font-size: 0.92rem; color: #444;
+                              line-height: 1.65; }
+
+  footer.site { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+                  color: var(--muted); font-size: 0.85rem;
+                  font-family: 'IBM Plex Mono', monospace; }
+
+  @media (max-width: 640px) {
+    nav.toc ul { grid-template-columns: 1fr; }
+    .shell { padding: 1.5rem 1rem; }
+    header.masthead h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <h1>学术周报</h1>
+    <div class="meta">2026-08-05 · 周期 2026-07-29 → 2026-08-05</div>
+  </header>
+
+  <section class="summary">
+    <p>📚 <b>2</b> 种学术期刊 · <b>14</b> 篇文章</p>
+    <p>期刊清单: Articles - Owen · 豆瓣广播 - ilad</p>
+  </section>
+
+  <section class="meta">
+<p>📚 <b>2</b> 种学术期刊 · <b>14</b> 篇文章 · 周期: 2026-07-29 → 2026-08-05</p>
+<p>期刊清单: Articles - Owen · 豆瓣广播 - ilad</p>
+</section>
+<nav class="toc"><h3>主题目录</h3><ul>
+<li><a href="#theme-0">知识工作与终身学习 <span class="cnt">(1)</span></a></li>
+<li><a href="#theme-1">媒介理论与传播现象 <span class="cnt">(3)</span></a></li>
+<li><a href="#theme-2">数字文化与注意力经济 <span class="cnt">(1)</span></a></li>
+<li><a href="#theme-3">数学哲学与知识论 <span class="cnt">(1)</span></a></li>
+<li><a href="#theme-4">非虚构写作与学术伦理 <span class="cnt">(1)</span></a></li>
+<li><a href="#theme-5">公共争议与文学批评 <span class="cnt">(3)</span></a></li>
+<li><a href="#theme-uncat">未归类 <span class="cnt">(5)</span></a></li>
+</ul></nav>
+<section class="theme" id="theme-0">
+  <header class="theme-header">
+    <h2>知识工作与终身学习 <span class="cnt">(1)</span></h2>
+    <p class="theme-desc">探讨知识工作者的学习方式、技能培养与终身学习议题</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">Articles - Owen</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-04</span>
+  </header>
+  <h3 class="title"><a href="https://perell.com/essay/learn-like-an-athlete/">像运动员一样学习</a></h3>
+  <p class="abstract">勒布朗·詹姆斯并非一直都有如此粗壮的小腿、棱角分明的六块腹肌，以及像“绿巨人”一样粗壮的双臂。运动员会训练。音乐家会训练。表演者会训练。但知识工作者却不会。2015 年，他决定学习一种名为 R 的编程语言。两年后，他已成为一名数据科学专家。这项新技能推动尼克开启了他的下一个长期项目——个人博客。从 2017 年 1 月 1 日起，尼克开始每周二发布一篇博文。 快进到今天，过去 131 周里，他每周都发布了一篇博文。尽管取得了成功，但他对知识的追求依然不遗余力。上次我去他家做客时，看到他客厅的桌子上放着一本 850 页的税法书籍。他计划在接下来的一年里专心研究美国税法，以便在税法方面的知识能与公司里的任何人一样渊博。即使在那些雄心勃勃的人当中，制定学习计划的也寥寥无几。大多数…</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-1">
+  <header class="theme-header">
+    <h2>媒介理论与传播现象 <span class="cnt">(3)</span></h2>
+    <p class="theme-desc">涉及媒介理论、传播学视角下的社会现象分析</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">Articles - Owen</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-04</span>
+  </header>
+  <h3 class="title"><a href="https://www.derekthompson.org/p/why-the-decline-of-literacyand-the">能解释 99% 现象的冷门媒介理论：口语万物理论</a></h3>
+  <p class="abstract">世上充斥着各种“万物理论”。“智能手机万物理论”认为，正是我们的个人设备导致了政治两极分化、焦虑、抑郁和阴谋论的盛行——更不用说注意力持续时间、智力、幸福感以及普遍和谐感的下降了。“住房万物理论”则将不平等、气候变化、肥胖和生育率下降归咎于西方国家无法建造足够的住房。 如果你把这些“万物理论”当作字面意义上的万物理论，你会失望地发现它们都存在漏洞。字母表的发明和读写能力的兴起，或许是人类历史上最重要的事件。 这些发展使人类的交流从“口头时代”——即所有信息都通过口头传递、所有学习都具有社会性——转向了“文字时代”。在文字时代，书写能够将词语固定下来，使人们能够独自写作、独自阅读，并构建出那些原本无法靠记忆掌握的抽象思想。口头时代是一个以社会性叙事和灵活的文化记忆为特征的时代。 文字时代催生了一系列抽象的思想体系——微积分、物理学、高等生…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">Articles - Owen</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-03</span>
+  </header>
+  <h3 class="title"><a href="https://www.derekthompson.org/p/the-26-most-important-ideas-for-2026">2026 年最重要的 26 个理念</a></h3>
+  <p class="abstract">一、&quot;万物皆电视&quot;阅读正在消亡——青少年日常阅读比例大幅下滑，几乎沦为&quot;濒危习惯&quot;。短视频全面胜出——社交媒体、播客都在向&quot;看视频&quot;靠拢，YouTube观看时长已超越Netflix。电影院结构性衰退。短视频可能损害注意力——大量研究显示重度使用者在注意力、记忆力上出现中度缺陷。二、AI正在吞噬经济，即将主导政治美国经济增长几乎全押注在AI基础设施上，规模堪比数个&quot;曼哈顿计划&quot;。电价飙升、资源被挤占，&quot;反AI民粹主义&quot;很可能成为下一波政治浪潮。生成式AI的实际写作与工作…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">Articles - Owen</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-02</span>
+  </header>
+  <h3 class="title"><a href="https://kyla.substack.com/p/the-most-valuable-commodity-in-the">世界上最有价值的资源是摩擦</a></h3>
+  <p class="abstract">数字世界：摩擦被自动化清除。物理世界：摩擦持续累积、无人买单。策展世界：摩擦被商品化，花钱买&quot;毫不费力&quot;的表象。 ★</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-2">
+  <header class="theme-header">
+    <h2>数字文化与注意力经济 <span class="cnt">(1)</span></h2>
+    <p class="theme-desc">关注数字时代文化消费模式变化与注意力问题</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">Articles - Owen</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-03</span>
+  </header>
+  <h3 class="title"><a href="https://www.derekthompson.org/p/the-26-most-important-ideas-for-2026">2026 年最重要的 26 个理念</a></h3>
+  <p class="abstract">一、&quot;万物皆电视&quot;阅读正在消亡——青少年日常阅读比例大幅下滑，几乎沦为&quot;濒危习惯&quot;。短视频全面胜出——社交媒体、播客都在向&quot;看视频&quot;靠拢，YouTube观看时长已超越Netflix。电影院结构性衰退。短视频可能损害注意力——大量研究显示重度使用者在注意力、记忆力上出现中度缺陷。二、AI正在吞噬经济，即将主导政治美国经济增长几乎全押注在AI基础设施上，规模堪比数个&quot;曼哈顿计划&quot;。电价飙升、资源被挤占，&quot;反AI民粹主义&quot;很可能成为下一波政治浪潮。生成式AI的实际写作与工作…</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-3">
+  <header class="theme-header">
+    <h2>数学哲学与知识论 <span class="cnt">(1)</span></h2>
+    <p class="theme-desc">关于数学工作方式、数学问题的哲学探讨</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-03</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9412513360/">ilad 转发小组讨论: 「数学的工作方式」</a></h3>
+  <p class="abstract">数学的工作方式antares：你大概已经被介绍了无数次挂谷宗一的那根针：一根针在平面上旋转一周，扫过的面积最小能有多小？这是个非常具体的问题，提出至今已有一个多世纪之久。 但王虹解决的问题不是这个。 早在1919年，贝西科维奇就证明了针扫过的面积可以任意小，趋近于0。为此他构造了一种集合，包含每一个方向上的单位线段，但勒贝格测度为零。勒贝格测度这个词听起来复杂，但你可以理解成定义更严谨的面积。 不过，数学家们并不会满足于此。他们会很自然地追问：面积是0，那具体是什么样的呢？毕竟点的面积是0，线的面积也是0。刻画这两者区别的数学概念叫“维数“：点是0，线是1，面是2，后来，数学家们还…</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-4">
+  <header class="theme-header">
+    <h2>非虚构写作与学术伦理 <span class="cnt">(1)</span></h2>
+    <p class="theme-desc">涉及非虚构写作、AI使用与学术诚信问题</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-03</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9412268283/">ilad 转发小组讨论: 「非虚构23」</a></h3>
+  <p class="abstract">非虚构23抒情的森林：一年前，我没有用AI，只用了免费的paperyy。现在我仍要说，我没有使用AI，甚至在这两天的一些比对中没有用查重软件。是工具就有技术壁垒，还得靠人发挥主观能动性，展示下读者真正的实力。不管破防的作家相信也好不相信也罢，前天朱天文两页纯粹是我文本细读手搓比对的结果。作家们千万不要盲目相信技术，企图让它复现你所有的罪愆或蒙骗所有人，最紧要的还是不忘初心：哪里异曲同工了你自己心里没有点数吗？除非这个初心早不知道丢到哪里去了。 当然，我说的话并非总是有道理。譬如还是一年前，我说过如下的三句话，现在看至少得收回它一句半句的： 1.不是会查重，就万事大吉。望周知。 …</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-5">
+  <header class="theme-header">
+    <h2>公共争议与文学批评 <span class="cnt">(3)</span></h2>
+    <p class="theme-desc">关于作家孙频相关争议事件及文学批评</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-02</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9404284000/">ilad 转发小组讨论: 「声明」</a></h3>
+  <p class="abstract">声明抒情的森林：针对江苏省作家协会专业作家、中国作家协会会员孙频近期公开在网络上对本人的无端猜测和人身攻击、捏造不实信息诽谤及其他侵权行为，本人已完整留存相关证据，并依法保留追究侵权者一切法律责任的权利。互联网不是法外之地，笔墨为证，清者自清。&lt;img src=&quot;/imgproxy/img/https://img1.doubanio.com/view/group_topic/l/public/p741681030.webp&quot; data-xextension-imageproxy-original-src=&quot;https://img1.doubanio.com/view/group_topic/l/pub…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-07-30</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9383312989/">ilad 转发小组讨论: 「本来不打算更新了」</a></h3>
+  <p class="abstract">本来不打算更新了抒情的森林：既然有图2的情况出现，那就继续吧。 ps.接下来关于作家孙频异曲同工的内容此前我从未在任何平台发布过&lt;img src=&quot;/imgproxy/img/https://i…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-07-30</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/doubanapp/dispatch?uri=%2Fstatus%2F9383312989%2F%3F_spm_id%3DMTQ1MjQxMzc2">ilad 转发小组讨论: 「本来不打算更新了」</a></h3>
+  <p class="abstract">本来不打算更新了抒情的森林：既然有图2的情况出现，那就继续吧。 ps.接下来关于作家孙频异曲同工的内容此前我从未在任何平台发布过&lt;img src=&quot;/imgproxy/img/https://i…</p>
+</article>
+  </div>
+</section>
+<section class="theme" id="theme-uncat">
+  <header class="theme-header">
+    <h2>未归类 <span class="cnt">(5)</span></h2>
+    <p class="theme-desc">LLM 未能匹配到合适议题的文章</p>
+  </header>
+  <div class="cards">
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-04</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9421133111/">ilad : 「又打错一个你字🫨」爱看</a></h3>
+  <p class="abstract">爱看又打错一个你字🫨&lt;img src=&quot;/imgproxy/img/https://img3.doubanio.com/view/group_topic/l/public/p741949162.w…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-04</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9420003376/">ilad 转发小组讨论: 「」</a></h3>
+  <p class="abstract">&lt;img src=&quot;/imgproxy/img/https://img9.doubanio.com/view/group_topic/l/public/p741928044.webp&quot; data-xextension-imageproxy-original-src=&quot;https://img9.doubanio.com/view/group_topic/l/public/p741928044.…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-08-01</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9396080338/">ilad 转发小组讨论: 「」</a></h3>
+  <p class="abstract">&lt;img src=&quot;/imgproxy/img/https://img2.doubanio.com/view/group_topic/l/public/p741556481.webp&quot; data-xextension-imageproxy-original-src=&quot;https://img2.doubanio.com/view/group_topic/l/public/p741556481.…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-07-30</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/people/145241376/status/9381517093/">ilad 转发小组讨论: 「P2:素人胆子是大」</a></h3>
+  <p class="abstract">P2:素人胆子是大&lt;img src=&quot;/imgproxy/img/https://img9.doubanio.com/view/group_topic/l/public/p741314444.webp&quot; dat…</p>
+</article>
+<article class="card">
+  <header>
+    <span class="journal">豆瓣广播 - ilad</span>
+    <span class="author">作者未知</span>
+    <span class="pub-date">2026-07-30</span>
+  </header>
+  <h3 class="title"><a href="https://www.douban.com/doubanapp/dispatch?uri=%2Fstatus%2F9381517093%2F%3F_spm_id%3DMTQ1MjQxMzc2">ilad 转发小组讨论: 「P2:素人胆子是大」</a></h3>
+  <p class="abstract">P2:素人胆子是大&lt;img src=&quot;/imgproxy/img/https://img9.doubanio.com/view/group_topic/l/public/p741314444.webp&quot; dat…</p>
+</article>
+  </div>
+</section>
+
+  <footer class="site">
+    由 Hermes Agent 自动生成 · 数据源 FreshRSS 学术期刊分类 · LLM 主题聚合
+  </footer>
+</div>
+</body>
+</html>

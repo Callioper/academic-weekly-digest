@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学术周报 · 2026-08-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #ea1b22;
+    --ink: #161616;
+    --paper: #efece6;
+    --paper-deep: #d8dbe1;
+    --panel: #f6f3ed;
+    --line: rgba(29, 24, 20, 0.14);
+    --muted: #6b655c;
+    --shadow: 0 8px 24px rgba(32, 25, 20, 0.08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.65), transparent 22%),
+                linear-gradient(180deg, #f8f6f2 0%, #efe9e0 100%);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', 'Noto Serif SC', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.65;
+  }
+  .shell { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+  header.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1rem; margin-bottom: 2.5rem; }
+  header.masthead h1 { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: 2.4rem; margin: 0 0 0.4rem; letter-spacing: -0.5px; }
+  header.masthead .meta { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; }
+
+  .summary { background: var(--panel); padding: 1.2rem 1.5rem; border-radius: 4px;
+              border-left: 4px solid var(--red); margin-bottom: 2rem;
+              font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--ink); }
+  .summary p { margin: 0.3rem 0; }
+
+  /* 主题目录（TOC） */
+  nav.toc { background: white; padding: 1.2rem 1.5rem; border-radius: 4px;
+            box-shadow: var(--shadow); margin-bottom: 2.5rem;
+            border: 1px solid var(--line); }
+  nav.toc h3 { font-family: 'Playfair Display', serif; margin: 0 0 0.8rem; font-size: 1.1rem;
+                color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+  nav.toc ul { list-style: none; padding: 0; margin: 0;
+                display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.5rem; }
+  nav.toc li { font-size: 0.92rem; }
+  nav.toc a { color: var(--ink); text-decoration: none;
+                border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+  nav.toc a:hover { border-bottom-color: var(--red); color: var(--red); }
+  nav.toc .cnt { color: var(--muted); font-family: 'IBM Plex Mono', monospace;
+                  font-size: 0.8rem; margin-left: 0.2rem; }
+
+  /* 主题 section */
+  section.theme { margin: 3rem 0; scroll-margin-top: 1rem; }
+  section.theme > .theme-header { border-left: 3px solid var(--red); padding-left: 1rem;
+                                    margin-bottom: 1.2rem; }
+  section.theme h2 { font-family: 'Playfair Display', 'Noto Serif SC', serif;
+                      font-size: 1.5rem; margin: 0; color: var(--ink); }
+  section.theme h2 .cnt { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;
+                            color: var(--muted); margin-left: 0.4rem; font-weight: 400; }
+  section.theme .theme-desc { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.92rem;
+                                font-style: italic; }
+
+  .cards { display: grid; gap: 1.2rem; }
+  article.card { background: white; padding: 1.4rem 1.6rem; border-radius: 4px;
+                  box-shadow: var(--shadow); border: 1px solid var(--line);
+                  transition: box-shadow 0.15s, transform 0.15s; }
+  article.card:hover { box-shadow: 0 12px 36px rgba(32, 25, 20, 0.12);
+                        transform: translateY(-1px); }
+  article.card header { display: flex; gap: 0.6rem; align-items: center;
+                          margin-bottom: 0.5rem; font-size: 0.78rem;
+                          font-family: 'IBM Plex Mono', monospace;
+                          text-transform: uppercase; letter-spacing: 0.5px; }
+  article.card .journal { background: var(--ink); color: var(--paper);
+                            padding: 2px 8px; font-weight: 500; }
+  article.card .author { color: var(--muted); }
+  article.card .pub-date { color: var(--muted); margin-left: auto;
+                            font-family: 'IBM Plex Mono', monospace; }
+  article.card .title { margin: 0.4rem 0 0.5rem; font-size: 1.08rem;
+                          font-family: 'Noto Serif SC', serif; line-height: 1.45; }
+  article.card .title a { color: var(--ink); text-decoration: none;
+                            border-bottom: 2px solid transparent; }
+  article.card .title a:hover { border-bottom-color: var(--red); }
+  article.card .abstract { margin: 0.5rem 0 0; font-size: 0.92rem; color: #444;
+                              line-height: 1.65; }
+
+  footer.site { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+                  color: var(--muted); font-size: 0.85rem;
+                  font-family: 'IBM Plex Mono', monospace; }
+
+  @media (max-width: 640px) {
+    nav.toc ul { grid-template-columns: 1fr; }
+    .shell { padding: 1.5rem 1rem; }
+    header.masthead h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <h1>学术周报</h1>
+    <div class="meta">2026-08-17 · 周期 2026-08-10 → 2026-08-17</div>
+  </header>
+
+  <section class="summary">
+    <p>📚 <b>0</b> 种学术期刊 · <b>0</b> 篇文章</p>
+    <p>期刊清单: </p>
+  </section>
+
+  <section class="meta">
+<p>📚 <b>0</b> 种学术期刊 · <b>0</b> 篇文章 · 周期: 2026-08-10 → 2026-08-17</p>
+<p>期刊清单: </p>
+</section>
+<nav class="toc"><h3>主题目录</h3><ul>
+</ul></nav>
+
+  <footer class="site">
+    由 Hermes Agent 自动生成 · 数据源 FreshRSS 学术期刊分类 · LLM 主题聚合
+  </footer>
+</div>
+</body>
+</html>
